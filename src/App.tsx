@@ -37,6 +37,12 @@ const checkWin = (grid: string[][], player1Icon: "x" | "o") => {
   return null;
 };
 
+const initialGrid = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""],
+];
+
 function Cell({
   type,
   position,
@@ -88,11 +94,7 @@ function Cell({
 }
 
 function App() {
-  const [grid, setGrid] = useState([
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""],
-  ]);
+  const [grid, setGrid] = useState(initialGrid);
   const [player1Icon, setPlayer1Icon] = useState<"x" | "o">("x");
   const [showPlayerIcons, setShowPlayerIcons] = useState(false);
   const [turnCount, setTurnCount] = useState(0);
@@ -112,7 +114,7 @@ function App() {
         <div className="">
           {grid.map((row, rowIndex) => (
             <div key={rowIndex} className="flex">
-              {row.map((cell, cellIndex) => {
+              {row.map((_, cellIndex) => {
                 const position = { row: rowIndex, col: cellIndex };
                 return (
                   <Cell
@@ -179,22 +181,16 @@ function App() {
                 </button>
               </>
             </div>
-            {/* <div>
+            <div>
               <button
                 className="mt-4 border border-black bg-gray-300 px-4 py-2 cursor-pointer"
                 onClick={() => {
-                  setGrid([
-                    ["", "", ""],
-                    ["", "", ""],
-                    ["", "", ""],
-                  ]);
-                  setShowPlayerIcons(false);
-                  setTurnCount(0);
+                  window.location.reload();
                 }}
               >
                 Reset Game
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
