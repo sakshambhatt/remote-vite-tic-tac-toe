@@ -1,0 +1,7 @@
+const initialGrid = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""],
+];
+
+export { initialGrid };
