@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+.cell-type {
+  -webkit-appearance: initial;
+  appearance: initial;
+  border: none;
+  background: lightgray;
+  position: relative;
+  border: 1px solid black;
+  margin: 1px;
+}
+
+.cell-type:checked {
+  background: lightgray;
+}
+
+.cell-type:checked:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+}
+
+.type-x:checked:after {
+  content: "x";
+  color: oklch(57.7% 0.245 27.325);
+}
+
+.type-o:checked:after {
+  content: "o";
+  color: oklch(54.6% 0.245 262.881);
+}
